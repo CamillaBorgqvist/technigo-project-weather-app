@@ -4,10 +4,60 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather app</title>
-    <!-- Don't forget to link the CSS file here! -->
+    <link rel="stylesheet" href=".style.css">
   </head>
   <body>
-    <h1>Weather app</h1>
-  <!-- Don't forget to connect the JavaScript file -->
-  </body>
+    <main>
+      <section class="main-weather-report">
+        <img id="weather-img" src="" alt="Current weather image">
+        <div class="todays-weather">
+          <h1 id="temperature">Loading</h1>
+          <h2 id="city">Loading</h2>
+          <h3 id="description">Loading</h3>
+        </div>
+
+        <div class="sunrise-sunset">
+          <h3>Sunrise</h3>
+          <h3 id="sunrise">Loading</h3>
+          <h3>Sunset</h3>
+          <h3 id="sunset">Loading</h3>
+        </div>
+      </section>
+
+      <section class="weather-forcast">
+        <div class="daily-forcast">
+          <h4 id="day">Day</h4>
+          <img id="weather-img" src="" alt="Forcast weather image">
+          <h4 id="highest-temp">Temp</h4>
+          <h4 id="lowest-temp">Temp</h4>
+        </div>
+        <div class="daily-forcast">
+          <h4 id="day">Day</h4>
+          <img id="weather-img" src="" alt="Forcast weather image">
+          <h4 id="highest-temp">Temp</h4>
+          <h4 id="lowest-temp">Temp</h4>
+        </div>
+        <div class="daily-forcast">
+          <h4 id="day">Day</h4>
+          <img id="weather-img" src="" alt="Forcast weather image">
+          <h4 id="highest-temp">Temp</h4>
+          <h4 id="lowest-temp">Temp</h4>
+        </div>
+        <div class="daily-forcast">
+          <h4 id="day">Day</h4>
+          <img id="weather-img" src="" alt="Forcast weather image">
+          <h4 id="highest-temp">Temp</h4>
+          <h4 id="lowest-temp">Temp</h4>
+        </div>
+        <div class="daily-forcast">
+          <h4 id="day">Day</h4>
+          <img id="weather-img" src="" alt="Forcast weather image">
+          <h4 id="highest-temp">Temp</h4>
+          <h4 id="lowest-temp">Temp</h4>
+        </div>
+      </section>
+    
+    </main>
+  <script src="./script.js"></script>  
+</body>
 </html>
