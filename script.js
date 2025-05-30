@@ -1,17 +1,44 @@
 // url for todays weather in Stockholm  https://api.openweathermap.org/data/2.5/weather?q=Stockholm,Sweden&units=metric&APPID=9fa3f19508599582ebd3a493bc9ef0e7
 // url for forcast for Stockholm https://api.openweathermap.org/data/2.5/forecast?q=Stockholm,Sweden&units=metric&APPID=9fa3f19508599582ebd3a493bc9ef0e7
 
-const weatherImg = document.getElementById("weather-img")
-const temperature = document.getElementById("temperature")
-const city = document.getElementById("city")
-const description = document.getElementById("description")
 
+//set different colors with gradient depending on the value weather.main
+const mainWeatherReport = document.querySelector('.main-weather-report');
 
-const day = document.getElementById("day")
-const highestTemp = document.getElementById("highest-temp")
-const lowestTemp = document.getElementById("lowest-temp")
+fetch("https://api.openweathermap.org/data/2.5/weather?q=Stockholm,Sweden&units=metric&APPID=9fa3f19508599582ebd3a493bc9ef0e7")
+  .then(response => response.json())
+  .then(data => {
+    const weatherType = data.weather[0].main;
 
-//getting the data for today
+    let gradient;
+
+    switch (weatherType) {
+      case 'Clear':
+        gradient = 'linear-gradient(to top,rgb(185, 220, 236),rgb(156, 189, 241))';
+        break;
+      case 'Clouds':
+        gradient = 'linear-gradient(to top,rgb(215, 210, 204),rgb(146, 153, 158))'; 
+        break;
+      case 'Rain':
+        gradient = 'linear-gradient(to top,rgb(189, 195, 199),rgb(65, 79, 94))'; 
+        break;
+      case 'Snow':
+        gradient = 'linear-gradient(to top,rgb(255, 255, 255),rgb(230, 240, 255))'; 
+        break;
+      case 'Thunderstorm':
+        gradient = 'linear-gradient(to top,rgb(87, 86, 86),rgb(39, 39, 39))';
+        break;
+      case 'Drizzle':
+        gradient = 'linear-gradient(to top,rgb(207, 217, 223),rgb(226, 235, 240))';
+        break;
+      default:
+        gradient = 'linear-gradient(to top,rgb(236, 233, 230),rgb(255, 255, 255))';
+    }
+
+    mainWeatherReport.style.backgroundImage = gradient;
+  });
+
+//getting the data for todays weather
 const fetchTodaysWeather = () => {
     fetch("https://api.openweathermap.org/data/2.5/weather?q=Stockholm,Sweden&units=metric&APPID=9fa3f19508599582ebd3a493bc9ef0e7")
     .then ((response) => response.json())
@@ -40,8 +67,8 @@ const fetchTodaysWeather = () => {
 
 fetchTodaysWeather()
 
-//getting the forcast data. 
-// want to show the max and mid temp througt a day so chose to group the data per day to do this 
+// getting the forcast data
+// want to show the max and mid temp througt a day so choose to group the data per day to do this 
 const fetchForcast = document.querySelectorAll('.daily-forcast');
 
 fetch("https://api.openweathermap.org/data/2.5/forecast?q=Stockholm,Sweden&units=metric&APPID=9fa3f19508599582ebd3a493bc9ef0e7")
